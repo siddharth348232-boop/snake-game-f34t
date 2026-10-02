@@ -366,6 +366,8 @@
         return String(value).padStart(3, "0");
       }
 
+      const getCellKey = (x, y) => `${x},${y}`;
+
       function reset() {
         snake = [{ x: 12, y: 13 }, { x: 11, y: 13 }, { x: 10, y: 13 }];
         direction = { x: 1, y: 0 };
@@ -377,10 +379,11 @@
       }
 
       function placeFood() {
+        const occupied = new Set(snake.map(segment => getCellKey(segment.x, segment.y)));
         const empty = [];
         for (let y = 0; y < cells; y++) {
           for (let x = 0; x < cells; x++) {
-            if (!snake.some(segment => segment.x === x && segment.y === y)) empty.push({ x, y });
+            if (!occupied.has(getCellKey(x, y))) empty.push({ x, y });
           }
         }
         food = empty[Math.floor(Math.random() * empty.length)];
@@ -440,9 +443,10 @@
         const head = { x: snake[0].x + direction.x, y: snake[0].y + direction.y };
         const eating = head.x === food.x && head.y === food.y;
         const body = eating ? snake : snake.slice(0, -1);
+        const bodySet = new Set(body.map(segment => getCellKey(segment.x, segment.y)));
 
         if (head.x < 0 || head.x >= cells || head.y < 0 || head.y >= cells ||
-            body.some(segment => segment.x === head.x && segment.y === head.y)) {
+            bodySet.has(getCellKey(head.x, head.y))) {
           endGame();
           return;
         }
