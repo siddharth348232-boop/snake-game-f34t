@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="640" viewBox="0 0 1000 640" role="img" aria-labelledby="title description">
+  <title id="title">Hand-drawn frequency response</title>
+  <desc id="description">A hand-drawn graph with gain rising from zero at the cutoff frequency fc to a flat gain of one.</desc>
+  <defs>
+    <pattern id="paper-grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#91a9bb" stroke-width=".7" opacity=".14"/>
+    </pattern>
+    <marker id="pencil-arrow" markerWidth="10" markerHeight="10" refX="7.5" refY="4.5" orient="auto" markerUnits="strokeWidth">
+      <path d="M1 1 Q4 3 8 4.5 Q4 6 1 8" fill="none" stroke="#303d4c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <style>
+      .hand {
+        font-family: "Segoe Print", "Comic Sans MS", "Bradley Hand", cursive;
+        fill: #303d4c;
+      }
+      .pencil {
+        fill: none;
+        stroke: #303d4c;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+    </style>
+  </defs>
+
+  <rect width="1000" height="640" fill="#fffef9"/>
+  <rect width="1000" height="640" fill="url(#paper-grid)"/>
+
+  <g class="pencil" stroke-width="3.2">
+    <path d="M178 500 Q177 397 179 295 Q178 213 181 144" marker-end="url(#pencil-arrow)"/>
+    <path d="M178 500 Q354 502 532 499 Q691 501 839 498" marker-end="url(#pencil-arrow)"/>
+  </g>
+  <g class="pencil" stroke-width="1.5" opacity=".52">
+    <path d="M183 501 Q180 399 183 294 Q182 213 184 150"/>
+    <path d="M181 504 Q354 506 532 503 Q691 505 833 502"/>
+  </g>
+
+  <path d="M181 500 Q274 502 365 499 L405 500"
+        class="pencil" stroke="#4177a8" stroke-width="4.6" opacity=".27"/>
+  <path d="M181 500 Q274 497 365 501 Q388 499 405 500
+           C427 496 443 427 458 365
+           C477 285 498 179 530 176
+           Q584 173 646 175 Q729 172 811 176"
+        class="pencil" stroke="#28689f" stroke-width="4.2"/>
+  <path d="M182 503 Q278 500 365 504 Q387 502 402 503
+           C427 499 444 431 461 369
+           C480 289 500 183 531 180
+           Q586 177 646 179 Q730 176 809 180"
+        class="pencil" stroke="#28689f" stroke-width="1.35" opacity=".48"/>
+
+  <g class="hand" font-size="29">
+    <text x="104" y="161" transform="rotate(-4 104 161)">Gain</text>
+    <text x="106" y="187" font-size="23">1</text>
+    <text x="106" y="510" font-size="23">0</text>
+    <text x="825" y="523" transform="rotate(-2 825 523)">Frequency</text>
+    <text x="393" y="540" font-size="25" transform="rotate(-3 393 540)">f<tspan baseline-shift="sub" font-size="18">c</tspan></text>
+  </g>
+
+  <path d="M405 182 Q408 265 407 346 Q408 422 407 487"
+        class="pencil" stroke="#ad8a55" stroke-width="1.6" stroke-dasharray="4 7" opacity=".72"/>
+</svg>
